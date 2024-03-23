@@ -72,7 +72,7 @@ export default class Write extends Component<{}, WriteState> {
         <div className="flex flex-col justify-center gap-0 fixed top-0 start-0 z-10">
           <Navbar />
         </div>
-        <div className="flex flex-col justify-start mt-40 lg:mt-40 md:mt-40 sm:mt-40 px-20">
+        <div className="flex flex-col justify-start mt-40 lg:mt-40 md:mt-40 sm:mt-40 ">
           {isClient ? (
             <ReactQuill 
               theme="bubble"
@@ -90,7 +90,7 @@ export default class Write extends Component<{}, WriteState> {
                 resize-none no-scrollbar overflow-y-auto scroll-smooth
                 outline-none focus:outline-none
                 font text-black text-4xl font-semibold text-justify
-                border-none rounded-sm border-0 min-h-[45rem] bg-bgmain w-6/6 px-52
+                border-none rounded-sm border-0 min-h-[45rem] bg-bgmain w-6/6 px-24 lg:px-44 md:px-44 sm:px-44
                 lg:rounded-2xl md:rounded-2xl sm:rounded-2xl lg:w-4/6 md:w-4/6 sm:w-4/6 lg:border-2 md:border-2 sm:border-2 resize-vertical
               "
             />
