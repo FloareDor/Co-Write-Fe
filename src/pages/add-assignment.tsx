@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Navbar from '@/components/navbar/navbar';
+import axios from 'axios';
 
 const AddAssignment = () => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [aiLimits, setAiLimits] = useState('');
+  const [title, setTitle] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
+  const [aiLimits, setAiLimits] = useState<string>('');
   const [resourceFile, setResourceFile] = useState<File | null>(null);
 
   const handleSubmit = (e) => {
@@ -14,6 +15,23 @@ const AddAssignment = () => {
     console.log('AI Limits:', aiLimits);
     console.log('Resource File:', resourceFile);
   };
+
+  const sendToBE = async () => {
+    const assignmentInfo = await axios.post("http://157.245.240.148:8000/add-assignment", {
+      title: title,
+      description: description,
+      ai_limitation: aiLimits,
+      resource_file: resourceFile
+    }, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: `${localStorage.getItem("authToken")}`
+      }
+    }).then((res) => {
+      return res
+    })
+    // window.location.href = "/write";
+  }
 
   return (
     <div className="bg-bgmain flex flex-col min-h-screen w-screen">
@@ -78,6 +96,7 @@ const AddAssignment = () => {
             <button
               type="submit"
               className="bg-secondary-700 hover:bg-secondary-800 text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
+              onClick={sendToBE}
             >
               Submit
             </button>
