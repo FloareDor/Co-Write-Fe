@@ -67,7 +67,7 @@ const Navbar = () => {
           </Link>
           <span className="text-black font-semibold text-medium lg:text-2xl md:text-xl pr-1.5 lg:pr-5 md:pr-5 sm:pr-5">2 hrs</span>
         </div>
-        <Link href="/write">
+        <Link href="/login">
           <Image src="/images/account.svg" alt="Account" width={50} height={50} className="w-14 h-14" />
         </Link>
       </div>
