@@ -48,7 +48,7 @@ const AssignmentPage = () => {
         </div>
         <div className="mt-8">
           <p className="text-gray-700">
-            If you don't have an assignment code, please contact your professor or teaching assistant.
+            If you don&apos;t have an assignment code, please contact your professor or teaching assistant.
           </p>
         </div>
       </div>
