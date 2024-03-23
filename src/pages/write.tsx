@@ -38,7 +38,6 @@ export default class Write extends Component<{}, WriteState> {
         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
         [{ list: 'ordered' }, { list: 'bullet' }],
         ['link', 'image'],
-        ['clean'],
       ],
     };
 
