@@ -95,7 +95,7 @@ const Dashboard = () => {
                     <span className="text-orange-700">{userType === "professor" ? "Ended" : "Submitted"}</span>
                 </div>
 
-                <div className="flex flex-row w-3/4 flex-wrap gap-x-3">
+                <div className="flex flex-row w-3/4 flex-wrap gap-3">
                     {
                         showAssignments.map((assignment, index) => {
                             return (

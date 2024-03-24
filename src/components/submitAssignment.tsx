@@ -1,5 +1,5 @@
 import axios from "axios"
-import { usePathname } from "next/navigation"
+import {useRouter} from 'next/router';
 import { FC, useEffect, useState } from "react"
 
 interface SubmitAssignmentProps {
@@ -7,15 +7,14 @@ interface SubmitAssignmentProps {
 }
 
 const SubmitAssignment:FC<SubmitAssignmentProps> = ({submissiontext}) => {
-    const pathname = usePathname()
-
+    const router = useRouter();
     useEffect(()=> {
         console.log(submissiontext)
     }, [])
 
     const submitAssignment = async () => {
         const formdata = new FormData()
-        formdata.append("assignment_id", pathname.split("/")[2])
+        formdata.append("assignment_id", router.asPath.split("/")[2])
         formdata.append("submission_text", submissiontext)
         try {
             const resp = await axios.post("http://157.245.240.148:8000/submit-assignment", formdata,
