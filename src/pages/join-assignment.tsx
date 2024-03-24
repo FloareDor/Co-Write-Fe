@@ -18,7 +18,7 @@ const AssignmentPage = () => {
       if (!isJoinedAssignment) {
         alert('Please enter a valid assignment-code.');
       } else {
-        router.push(`/write?assignmentCode=${assignmentCode}`);
+        router.push(`/write/assignmentCode=${assignmentCode}`);
       }
     } else {
       alert('Please enter a valid assignment code.');

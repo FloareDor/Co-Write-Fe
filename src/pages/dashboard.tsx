@@ -95,11 +95,11 @@ const Dashboard = () => {
                     <span className="text-orange-700">{userType === "professor" ? "Ended" : "Submitted"}</span>
                 </div>
 
-                <div>
+                <div className="flex flex-row w-3/4 flex-wrap gap-x-3">
                     {
                         showAssignments.map((assignment, index) => {
                             return (
-                                <Link key={index} href={userType === "professor" ? `/assignments/${assignment._id}` : `/write?${assignment._id}` }>
+                                <Link key={index} href={userType === "professor" ? `/assignments/${assignment._id}` : `/write/${assignment._id}` }>
                                     <div className={`w-48 h-fit rounded-lg p-2 cursor-pointer ${assignment.active ? "bg-secondary-200" : "bg-secondary-400"}`}>
                                         <div>
                                             <span className="text-black text-sm"><span className={`text-orange-700`}>{assignment.title}</span></span>
