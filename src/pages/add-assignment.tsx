@@ -3,9 +3,9 @@ import Navbar from '@/components/navbar/navbar';
 import axios from 'axios';
 
 const AddAssignment = () => {
-  const [title, setTitle] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
-  const [aiLimits, setAiLimits] = useState<string>('');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [aiLimits, setAiLimits] = useState('');
   const [resourceFile, setResourceFile] = useState<File | null>(null);
 
   const handleSubmit = (e) => {
@@ -17,21 +17,26 @@ const AddAssignment = () => {
   };
 
   const sendToBE = async () => {
-    const assignmentInfo = await axios.post("http://157.245.240.148:8000/add-assignment", {
-      title: title,
-      description: description,
-      ai_limitation: aiLimits,
-      resource_file: resourceFile
-    }, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-        Authorization: `${localStorage.getItem("authToken")}`
-      }
-    }).then((res) => {
-      return res
-    })
-    // window.location.href = "/write";
-  }
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('description', description);
+    formData.append('ai_limitation', aiLimits);
+    if (resourceFile) {
+      formData.append('resource_file', resourceFile, resourceFile.name);
+    }
+
+    try {
+      const response = await axios.post('http://http://157.245.240.148:8000/add-assignment', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'Authorization': `${localStorage.getItem('authToken')}`,
+        },
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="bg-bgmain flex flex-col min-h-screen w-screen">
