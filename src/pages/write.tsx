@@ -1,7 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import Navbar from '@/components/navbar/navbar';
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
 
 interface WriteState {
   value: string;

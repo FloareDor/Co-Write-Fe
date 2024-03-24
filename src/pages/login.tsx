@@ -1,5 +1,4 @@
 import Image from "next/image";
-// import Logo from "../components/icons/logo";
 import GoogleLogo from "../../public/google.svg"
 import Button from "../components/Button/index";
 import { Inter } from "next/font/google";
@@ -26,7 +25,7 @@ const Login = () => {
         })
 
         localStorage.setItem('userInfo', JSON.stringify(userInfo))
-        window.location.href = "/write";
+        window.location.href = "/dashboard";
     }
 
     const loginWithGoogle = useGoogleLogin({

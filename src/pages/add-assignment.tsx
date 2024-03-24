@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Navbar from '@/components/navbar/navbar';
 import axios from 'axios';
+import NavbarDashboard from '@/components/navbar/navbarDashboard';
 
 const AddAssignment = () => {
   const [title, setTitle] = useState('');
@@ -26,13 +26,14 @@ const AddAssignment = () => {
     }
 
     try {
-      const response = await axios.post('http://http://157.245.240.148:8000/add-assignment', formData, {
+      const response = await axios.post('http://157.245.240.148:8000/add-assignment', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `${localStorage.getItem('authToken')}`,
         },
-      });
-      console.log(response.data);
+      }).then((res) => {
+        window.location.href = `/assignments/${res.data.assignment_id}`
+    });
     } catch (error) {
       console.error(error);
     }
@@ -41,7 +42,7 @@ const AddAssignment = () => {
   return (
     <div className="bg-bgmain flex flex-col min-h-screen w-screen">
       <div className="flex flex-col justify-center gap-0 fixed top-0 start-0 z-10">
-        <Navbar />
+        <NavbarDashboard />
       </div>
       <div className="flex flex-col justify-center items-center mt-16 px-20">
         <h1 className="text-4xl font-bold mb-8">Add Assignment</h1>

@@ -35,7 +35,7 @@ const Navbar = () => {
     <nav className=" w-screen flex flex-row justify-between items-center bg-bgmain h-28 gap-0.5 px-3 lg:px-5 md:px-5 sm:px-5 lg:h:28 md:h-28 sm:h-28">
       {/* Left side */}
       <div className="flex items-center justify-between gap-3 lg:justify-start lg:gap-6 md:gap-6 sm:gap-6">
-        <Link href="/write" >
+        <Link href="/dashboard" >
           <Image src="/images/home.svg" alt="Home" width={24} height={24} className="w-11 h-11 flex-shrink-0" />
         </Link>
         {isEditing ? (
@@ -63,12 +63,12 @@ const Navbar = () => {
       <div className="flex items-center justify-between gap-6">
         <div className="flex items-center justify-between gap-1 bg-primary rounded-full lg:gap-4">
           <Link href="/write">
-            <Image src="/images/clock.svg" alt="Clock" width={50} height={50} className="h-14 w-14" />
+            <Image src="/images/clock.svg" alt="Clock" width={50} height={50} className="h-10 w-10" />
           </Link>
           <span className="text-black font-semibold text-medium lg:text-2xl md:text-xl pr-1.5 lg:pr-5 md:pr-5 sm:pr-5">2 hrs</span>
         </div>
-        <Link href="/login">
-          <Image src="/images/account.svg" alt="Account" width={50} height={50} className="w-14 h-14" />
+        <Link href="/account">
+          <Image src="/images/account.svg" alt="Account" width={50} height={50} className="w-10 h-10" />
         </Link>
       </div>
     </nav>

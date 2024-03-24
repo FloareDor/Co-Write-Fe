@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import Navbar from '@/components/navbar/navbar';
 import { useRouter } from 'next/router';
+import NavbarDashboard from '@/components/navbar/navbarDashboard';
+import { joinAssignment } from './api/AssignmentsAPI';
 
 const AssignmentPage = () => {
   const [assignmentCode, setAssignmentCode] = useState('');
@@ -10,9 +11,15 @@ const AssignmentPage = () => {
     setAssignmentCode(e.target.value);
   };
 
-  const handleContinue = () => {
+  const handleContinue = async () => {
     if (assignmentCode.trim() !== '') {
-      router.push(`/write?assignmentCode=${assignmentCode}`);
+      
+      const isJoinedAssignment = await joinAssignment(assignmentCode);
+      if (!isJoinedAssignment) {
+        alert('Please enter a valid assignment-code.');
+      } else {
+        router.push(`/write?assignmentCode=${assignmentCode}`);
+      }
     } else {
       alert('Please enter a valid assignment code.');
     }
@@ -21,7 +28,7 @@ const AssignmentPage = () => {
   return (
     <div className="bg-bgmain flex flex-col min-h-screen w-screen">
       <div className="flex flex-col justify-center gap-0 fixed top-0 start-0 z-10">
-        <Navbar />
+        <NavbarDashboard />
       </div>
       <div className="flex flex-col justify-center items-center mt-40 px-20">
         <h1 className="text-4xl font-bold mb-8">Assignment Page</h1>
