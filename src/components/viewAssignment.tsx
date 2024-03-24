@@ -17,6 +17,7 @@ const ViewAssignment = () => {
         setView(true)
         const formdata = new FormData()
         formdata.append("assignment_id", router.asPath.split("/")[2])
+        console.log("Assignment ID", router.asPath)
         try {
             const resp = await axios.post("http://157.245.240.148:8000/assignment-by-id", formdata,
                 {
