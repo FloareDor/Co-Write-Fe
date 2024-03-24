@@ -2,7 +2,7 @@ import axios from "axios"
 import Image from "next/image"
 import { useState } from "react"
 import { SlArrowUp } from "react-icons/sl"
-import { usePathname } from 'next/navigation'
+import { useRouter } from 'next/router';
 
 interface AIMessage {
     message: string
@@ -13,7 +13,7 @@ const CowriteAssist = () => {
     const [messages, setMessages] = useState<AIMessage[]>([] as AIMessage[])
     const [currMessage, setCurrMessage] = useState<string>("")
 
-    const pathname = usePathname()
+    const router = useRouter()
 
     const askQuestion = async (e) => {
         e.preventDefault()
@@ -27,7 +27,7 @@ const CowriteAssist = () => {
 
         const formData = new FormData();
         formData.append("user_query", currMessage);
-        formData.append("assignment_id", pathname.split("/")[2]);
+        formData.append("assignment_id", router.asPath.split("/")[2]);
         try {
             const response = await axios.post('http://157.245.240.148:8000/chat', formData,
                 {
