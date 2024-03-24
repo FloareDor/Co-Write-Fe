@@ -1,42 +1,34 @@
 [VIDEO LINK](https://drive.google.com/file/d/1imCGSRE_liEBf4bSd-v9zH90DQaKHrIq/view?usp=sharing)
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Co-Write
 
-## Getting Started
+Have you ever lost a grade due to your professor marking your assignment as "used AI" falsely?
 
-First, run the development server:
+[Are you tired of the high error rate of AI detection software, making it an annoyance to grade your students?](https://mitsloanedtech.mit.edu/ai/teach/ai-detectors-dont-work/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Enter Co-Write.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+CoWriter provides targeted AI assistance within professor-defined boundaries, making it a key component for all student infrastructure applications. We help students and professors set up and submit assignments while maintaining academic integrity and learning objectives, making it fun for both the profs and the students.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Features of Co-Write
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### For Professors:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- **Create Assignments:** Easily set up assignments with details like titles, descriptions, and document attachments for contextual AI assistance using RAGs and specific AI limitations.
+- **Control AI Use:** Define limitations for OpenAI access to ensure students stay on track and complete assignments independently. We help preserve academic integrity and learning objectives.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### For Students:
 
-## Learn More
+- **Targeted Assistance:** Leverage CoWriter's RAG implementation for targeted AI assistance within professor-defined boundaries getting a head start on understanding assignments. Be able to use AI on your test/essay guilt-free.
+- **Smart Prompts:** Utilize the built-in machine learning model to determine if your prompt needs general help or clarification, or if it's a direct request for answer generation (which may be restricted).
+- **Adaptive OpenAI Integration:** Access OpenAI's capabilities when professors provide resources, but with limitations to prevent plagiarism and encourage independent work.
 
-To learn more about Next.js, take a look at the following resources:
+## Future Plans:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Use CoWriter seamlessly within the Canvas interface you're already familiar with.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Technologies:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Front-End:** Next.js, TypeScript
+- **Back-End:** FastAPI, MongoDB
+- **AI:** LangChain
